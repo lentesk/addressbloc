@@ -32,6 +32,11 @@ require_relative 'entry'
 	 @entries.delete(delete_entry)
 
 	end
+
+	# def select_entry(name, phone_number, email)
+	# 	@entries.select.with_index
+	# end
 end
+
 
 
