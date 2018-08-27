@@ -53,29 +53,30 @@ class MenuController
  	end
 
 	def view_all_entries
-   # #14
-   address_book.entries.each do |entry|
-     system "clear"
-     puts entry.to_s
-   # #15
-     entry_submenu(entry)
-     end
+    address_book.entries.each do |entry|
+      system "clear"
+      puts entry.to_s
+      entry_submenu(entry)
+    end
 
-   	system "clear"
-   	puts "End of entries"
-   end
+    system "clear"
+    puts "End of entries"
+  end
 
-   def view_entry_n
-
-   	system "clear"
-    puts "Which entry number?"
-
+  def view_entry_n
    	print "Entry number: "
-   	address_book.entries.select{|entry| entry==gets.chomp }
+   	selection = gets.chomp.to_i
 
-   	system "clear"
-   	puts "Selected"
-   end
+   	if selection < @address_book.entries.count
+   		puts @address_book.entries[selection]
+   		puts "Press enter to return to main menu"
+   		gets.chomp
+   		system "clear"
+   	else
+   		puts "#{selection} is not a valid input"
+   		view_entry_n
+   	end
+	end
 
  	def create_entry
  		system "clear"
