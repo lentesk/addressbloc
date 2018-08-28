@@ -1,13 +1,13 @@
 require_relative 'entry'
 require "csv"
 
-	class AddressBook
-		attr_reader :entries
+class AddressBook
+	attr_reader :entries
 
-		def initialize
-			@entries = []
-		end
-	
+	def initialize
+		@entries = []
+	end
+
 
 	def add_entry(name, phone_number, email)
 		index =0
@@ -49,6 +49,18 @@ require "csv"
 
 		return nil		
 	end
+
+	def iterative_search(name)
+		i = 0
+		while i < entries.length
+			if entries[i].name == name
+				return entries[i]
+			end
+			i+=1
+		end
+		return nil
+	end
+
 end
 
 
