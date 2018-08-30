@@ -52,7 +52,7 @@ class AddressBook
 
 	def iterative_search(name)
 		i = 0
-		while i < entries.length
+		entries.each_with_index do |value, i|
 			if entries[i].name == name
 				return entries[i]
 			end
